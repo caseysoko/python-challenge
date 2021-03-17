@@ -23,7 +23,7 @@ overall_decrease = ""
 value_col = 1
 month_col = 0
 
-csv_path = os.path.join('Resources', 'budget_data.csv')
+csv_path = os.path.join('Desktop','python-challenge','PyBank','Resources','budget_data.csv')
 
 with open(csv_path, newline="") as csvfile:
     budget_reader=csv.reader(csvfile,delimiter=",")
@@ -49,16 +49,19 @@ with open(csv_path, newline="") as csvfile:
         if total_month != 1:
             average_change=round((total_change/(total_month-1)),2)
         
-        print("Financial Analysis")
-        print("------------------")
-        print(f'Total Months: {total_month}')
-        print(f'Total Profit/Loss: ${total_amount}')
-        print(f'Average Profit/Losses Change: ${average_change}')
-        print(f'Greatest Increase: {overall_increase} ${greatest_increase}')
-        print(f'Greatest Decrease: {overall_decrease} ${greatest_decrease}')
+        results = "Financial Analysis \n"
+        results = results + "------------------ \n"
+        results = results + f"Total Months: {total_month} \n"
+        results = results + f"Total Profit/Loss: ${total_amount} \n"
+        results = results + f"Average Profit/Losses Change: ${average_change} \n"
+        results = results + f"Greatest Increase: {overall_increase} ${greatest_increase} \n"
+        results = results + f"Greatest Decrease: {overall_decrease} ${greatest_decrease} \n"
+        print(results)
 
-        output_path=os.path.join("Output","PyBankAnalysis.txt")
+        output_path=os.path.join("Analysis","PyBankAnalysis.txt")
         output_file=open(output_path,"w")
+        output_file.write(results)
+
 
        
 
